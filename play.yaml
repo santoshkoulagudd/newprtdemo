@@ -1,0 +1,13 @@
+---
+ - name: executing script on Instance-2
+   hosts: Instance-2
+   become: true
+   tasks:
+    - name: installing apache2 on Instance-2
+      script: apache.sh
+ - name: executing script on Instance-3
+   hosts: Instance-3
+   become: true
+   tasks: 
+    - name: installing nginx
+      script: nginx.sh
