@@ -1,0 +1,31 @@
+---
+- name: Setup Web Servers
+  hosts: all
+  become: yes
+  tasks:
+
+    - name: Install Apache2 on instance2
+      apt:
+        name: apache2
+        state: present
+      when: inventory_hostname == "instance2"
+
+    - name: Start and enable Apache2 on instance2
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+      when: inventory_hostname == "instance2"
+
+    - name: Install Nginx on instance3
+      apt:
+              name: nginx
+        state: present
+      when: inventory_hostname == "instance3"
+
+    - name: Start and enable Nginx on instance3
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+      when: inventory_hostname == "instance3"
