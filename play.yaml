@@ -19,7 +19,7 @@
 
     - name: Install Nginx on instance3
       apt:
-              name: nginx
+        name: nginx
         state: present
       when: inventory_hostname == "instance3"
 
